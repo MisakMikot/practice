@@ -218,6 +218,46 @@ def breakInstaller(value:bytes):
         with open("new.msp", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
+def breakEbook(value:bytes):
+    '''
+    This is a breakPdf function
+    :return:
+    '''
+    string = str(value)
+    list = string.split('\\')
+    index = random.randint(0, len(list) - 1)
+    list.remove(list[index])
+    result = "".join(list)
+    if fileext == 'pdf':
+        with open("new.pdf", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'epub':
+        with open("new.epub", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'mobi':
+        with open("new.mobi", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'azw':
+        with open("new.azw", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'azw3':
+        with open("new.azw3", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'azw4':
+        with open("new.azw4", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'azw5':
+        with open("new.azw5", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+
+def usage():
+    '''
+    This is a usage function
+    :return:
+    '''
+    print("Usage: {} <file>".format(sys.argv[0]))
+    print("Example: {} test.exe".format(sys.argv[0]))
+
 def main(argvs:list):
     '''
     this is main function
@@ -298,8 +338,25 @@ def main(argvs:list):
                 print("Successfully broken")
         else:
             print("Canceled")
+    elif fileext == "pdf" or fileext == "mobi" or fileext == "epub" or fileext == "azw" or fileext == "azw3" or fileext == "azw4" or fileext == "azw5":
+        confirm = input("Do you want to break this ebook?(y/n)")
+        if confirm == "y":
+            with open(filename, "rb") as f:
+                value = f.read()
+                breakEbook(value)
+                print("Successfully broken")
+        else:
+            print("Canceled")
+    else:
+        print("Unsupported file type")
 
 
 if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        usage()
+        exit(1)
+    elif len(sys.argv) > 2:
+        usage()
+    else:
+        main(sys.argv)
     argvs = sys.argv
-    main(argvs)
