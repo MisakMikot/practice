@@ -1,16 +1,16 @@
 import os
 import random
 import sys
-import time
 import threading
+import time
 
 
 def breakExe(value: bytes):
-    global wait
     '''
     this is breakExe function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -26,6 +26,7 @@ def breakDoc(value: bytes):
     this is breakDoc function
     :return:
     '''
+    global wait
     string = str(value)
     result = string.replace('word', 'fakeword')
     if fileext == 'docx':
@@ -42,6 +43,7 @@ def breakVideo(value: bytes):
     this is breakVideo function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -79,6 +81,7 @@ def breakAudio(value: bytes):
     this is breakAudio function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -107,6 +110,7 @@ def breakArc(value: bytes):
     this is breakArc function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -144,6 +148,7 @@ def breakImg(value: bytes):
     this is breakImg function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -178,6 +183,7 @@ def breakDisk(value: bytes):
     this is breakIso function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -221,6 +227,7 @@ def breakInstaller(value: bytes):
     This is a breakInstaller function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -243,6 +250,7 @@ def breakEbook(value: bytes):
     This is a breakPdf function
     :return:
     '''
+    global wait
     string = str(value)
     list = string.split('\\')
     index = random.randint(0, len(list) - 1)
@@ -290,6 +298,7 @@ def supportFileExt():
     print(
         "exe, msi, msp, msu, vhd, vmdk, vdi, vhdx, vhd, vcd, iso, dvd, blu-ray, cd, vhd, epub, pdf, mobi, azw, azw3, azw4, azw5, zip ,doc ,docx, mp4")
 
+
 def waitAnime(tip="Breaking..."):
     global wait
     '''
@@ -299,12 +308,14 @@ def waitAnime(tip="Breaking..."):
     r = ['|', '/', '-', '\\']
     while True:
         if wait == True:
-            print("\r",flush=True,end="")
+            print("\r", flush=True, end="")
             wait = False
             return
         for i in range(4):
             print("\r", r[i % 4], tip, end='', flush=True)
             time.sleep(0.2)
+
+
 def main(argvs: list):
     '''
     this is main function
@@ -319,7 +330,7 @@ def main(argvs: list):
             confirm = input("Do you want to break this executable?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
-                    t = threading.Thread(target=breakExe, args=("Reading...",))
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
                     t.start()
                     value = f.read()
                     wait = True
@@ -335,7 +346,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this document?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakDoc, args=(value,))
                     t.start()
                     waitAnime()
@@ -348,7 +362,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this video?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
-                    value = f.read()
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
+                    value = f.read
+                    wait = True()
                     t = threading.Thread(target=breakVideo, args=(value,))
                     t.start()
                     waitAnime()
@@ -361,7 +378,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this audio?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakAudio, args=(value,))
                     t.start()
                     waitAnime()
@@ -374,7 +394,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this archive?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakArc, args=(value,))
                     t.start()
                     waitAnime()
@@ -387,7 +410,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this image?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakImg, args=(value,))
                     t.start()
                     waitAnime()
@@ -400,7 +426,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this disk?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakDisk, args=(value,))
                     t.start()
                     waitAnime()
@@ -413,7 +442,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this installer?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakInstaller, args=(value,))
                     t.start()
                     waitAnime()
@@ -426,7 +458,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this ebook?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=waitAnime, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakEbook, args=(value,))
                     t.start()
                     waitAnime()
