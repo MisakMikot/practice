@@ -290,7 +290,7 @@ def supportFileExt():
     print(
         "exe, msi, msp, msu, vhd, vmdk, vdi, vhdx, vhd, vcd, iso, dvd, blu-ray, cd, vhd, epub, pdf, mobi, azw, azw3, azw4, azw5, zip ,doc ,docx, mp4")
 
-def waitAnime():
+def waitAnime(tip="Breaking..."):
     global wait
     '''
     This is a waitAnime function
@@ -303,7 +303,7 @@ def waitAnime():
             wait = False
             return
         for i in range(4):
-            print("\r", r[i % 4], end='', flush=True)
+            print("\r", r[i % 4], tip, end='', flush=True)
             time.sleep(0.2)
 def main(argvs: list):
     '''
@@ -311,6 +311,7 @@ def main(argvs: list):
     :return:
     '''
     global fileext
+    global wait
     filename = argvs[1]
     fileext = filename.split(".")[-1]
     try:
@@ -318,7 +319,10 @@ def main(argvs: list):
             confirm = input("Do you want to break this executable?(y/n)")
             if confirm == "y":
                 with open(filename, "rb") as f:
+                    t = threading.Thread(target=breakExe, args=("Reading...",))
+                    t.start()
                     value = f.read()
+                    wait = True
                     t = threading.Thread(target=breakExe, args=(value,))
                     t.start()
                     waitAnime()
