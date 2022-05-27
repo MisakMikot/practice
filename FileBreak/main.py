@@ -125,6 +125,99 @@ def breakArc(value:bytes):
         with open("new.tar.gz", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
+def breakImg(value:bytes):
+    '''
+    this is breakImg function
+    :return:
+    '''
+    string = str(value)
+    list = string.split('\\')
+    index = random.randint(0,len(list)-1)
+    list.remove(list[index])
+    result = "".join(list)
+    if fileext == 'jpg':
+        with open("new.jpg", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'jpeg':
+        with open("new.jpeg", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'png':
+        with open("new.png", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'gif':
+        with open("new.gif", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'bmp':
+        with open("new.bmp", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'tiff':
+        with open("new.tiff", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'ico':
+        with open("new.ico", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+
+def breakDisk(value:bytes):
+    '''
+    this is breakIso function
+    :return:
+    '''
+    string = str(value)
+    list = string.split('\\')
+    index = random.randint(0,len(list)-1)
+    list.remove(list[index])
+    result = "".join(list)
+    if fileext == 'iso':
+        with open("new.iso", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vcd':
+        with open("new.vcd", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'dvd':
+        with open("new.dvd", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'blu-ray':
+        with open("new.blu-ray", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'cd':
+        with open("new.cd", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vhd':
+        with open("new.vhd", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vmdk':
+        with open("new.vmdk", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vdi':
+        with open("new.vdi", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vhdx':
+        with open("new.vhdx", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'vhd':
+        with open("new.vhd", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+
+def breakInstaller(value:bytes):
+    '''
+    This is a breakInstaller function
+    :return:
+    '''
+    string = str(value)
+    list = string.split('\\')
+    index = random.randint(0, len(list) - 1)
+    list.remove(list[index])
+    result = "".join(list)
+    if fileext == 'msi':
+        with open("new.msi", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'msu':
+        with open("new.msu", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+    elif fileext == 'msp':
+        with open("new.msp", "wb") as f:
+            f.write(bytes(result, 'utf-8'))
+
 def main(argvs:list):
     '''
     this is main function
@@ -178,7 +271,33 @@ def main(argvs:list):
                 print("Successfully broken")
         else:
             print("Canceled")
-
+    elif fileext == "jpg" or fileext == "jpeg" or fileext == "png" or fileext == "gif" or fileext == "bmp" or fileext == "tiff" or fileext == "ico":
+        confirm = input("Do you want to break this image?(y/n)")
+        if confirm == "y":
+            with open(filename, "rb") as f:
+                value = f.read()
+                breakImg(value)
+                print("Successfully broken")
+        else:
+            print("Canceled")
+    elif fileext == "iso" or fileext == "vdi" or fileext == "vhdx" or fileext == "vhd" or fileext == "img" or fileext == "vmdk":
+        confirm = input("Do you want to break this disk?(y/n)")
+        if confirm == "y":
+            with open(filename, "rb") as f:
+                value = f.read()
+                breakDisk(value)
+                print("Successfully broken")
+        else:
+            print("Canceled")
+    elif fileext == "msi" or fileext == "cab" or fileext == "msp" or fileext == "msu" or fileext == "msp" or fileext == "msp" or fileext == "msi" or fileext == "msi":
+        confirm = input("Do you want to break this installer?(y/n)")
+        if confirm == "y":
+            with open(filename, "rb") as f:
+                value = f.read()
+                breakInstaller(value)
+                print("Successfully broken")
+        else:
+            print("Canceled")
 
 
 if __name__ == "__main__":
