@@ -1,8 +1,12 @@
+import os
 import random
 import sys
+import time
+import threading
 
 
 def breakExe(value: bytes):
+    global wait
     '''
     this is breakExe function
     :return:
@@ -14,6 +18,7 @@ def breakExe(value: bytes):
     result = "".join(list)
     with open("new.exe", "wb") as f:
         f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakDoc(value: bytes):
@@ -29,6 +34,7 @@ def breakDoc(value: bytes):
     elif fileext == 'doc':
         with open("new.doc", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakVideo(value: bytes):
@@ -65,6 +71,7 @@ def breakVideo(value: bytes):
     elif fileext == '3gp':
         with open("new.3gp", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakAudio(value: bytes):
@@ -92,6 +99,7 @@ def breakAudio(value: bytes):
     elif fileext == 'aac':
         with open("new.aac", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakArc(value: bytes):
@@ -128,6 +136,7 @@ def breakArc(value: bytes):
     elif fileext == 'tar.gz':
         with open("new.tar.gz", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakImg(value: bytes):
@@ -161,6 +170,7 @@ def breakImg(value: bytes):
     elif fileext == 'ico':
         with open("new.ico", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakDisk(value: bytes):
@@ -203,6 +213,7 @@ def breakDisk(value: bytes):
     elif fileext == 'vhd':
         with open("new.vhd", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakInstaller(value: bytes):
@@ -224,6 +235,7 @@ def breakInstaller(value: bytes):
     elif fileext == 'msp':
         with open("new.msp", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def breakEbook(value: bytes):
@@ -257,6 +269,7 @@ def breakEbook(value: bytes):
     elif fileext == 'azw5':
         with open("new.azw5", "wb") as f:
             f.write(bytes(result, 'utf-8'))
+    wait = True
 
 
 def usage():
@@ -277,7 +290,21 @@ def supportFileExt():
     print(
         "exe, msi, msp, msu, vhd, vmdk, vdi, vhdx, vhd, vcd, iso, dvd, blu-ray, cd, vhd, epub, pdf, mobi, azw, azw3, azw4, azw5, zip ,doc ,docx, mp4")
 
-
+def waitAnime():
+    global wait
+    '''
+    This is a waitAnime function
+    :return:
+    '''
+    r = ['|', '/', '-', '\\']
+    while True:
+        if wait == True:
+            print("\r",flush=True,end="")
+            wait = False
+            return
+        for i in range(4):
+            print("\r", r[i % 4], end='', flush=True)
+            time.sleep(0.2)
 def main(argvs: list):
     '''
     this is main function
@@ -286,92 +313,134 @@ def main(argvs: list):
     global fileext
     filename = argvs[1]
     fileext = filename.split(".")[-1]
-    if fileext == "exe":
-        confirm = input("Do you want to break this executable?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakExe(value)
-                print("Successfully broken")
+    try:
+        if fileext == "exe":
+            confirm = input("Do you want to break this executable?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakExe, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "doc" or fileext == "docx":
+            confirm = input("Do you want to break this document?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakDoc, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "mp4" or fileext == "avi" or fileext == "mkv" or fileext == "flv" or fileext == "mpg" or fileext == "wmv" or fileext == "mov" or fileext == "3gp":
+            confirm = input("Do you want to break this video?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakVideo, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "mp3" or fileext == "wav" or fileext == "flac" or fileext == "ogg" or fileext == "aac":
+            confirm = input("Do you want to break this audio?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakAudio, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "zip" or fileext == "rar" or fileext == "7z" or fileext == "tar" or fileext == "gz" or fileext == "bz2" or fileext == "xz" or fileext == "tar.gz":
+            confirm = input("Do you want to break this archive?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakArc, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "jpg" or fileext == "jpeg" or fileext == "png" or fileext == "gif" or fileext == "bmp" or fileext == "tiff" or fileext == "ico":
+            confirm = input("Do you want to break this image?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakImg, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "iso" or fileext == "vdi" or fileext == "vhdx" or fileext == "vhd" or fileext == "img" or fileext == "vmdk":
+            confirm = input("Do you want to break this disk?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakDisk, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "msi" or fileext == "cab" or fileext == "msp" or fileext == "msu" or fileext == "msp" or fileext == "msp" or fileext == "msi" or fileext == "msi":
+            confirm = input("Do you want to break this installer?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakInstaller, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
+        elif fileext == "pdf" or fileext == "mobi" or fileext == "epub" or fileext == "azw" or fileext == "azw3" or fileext == "azw4" or fileext == "azw5":
+            confirm = input("Do you want to break this ebook?(y/n)")
+            if confirm == "y":
+                with open(filename, "rb") as f:
+                    value = f.read()
+                    t = threading.Thread(target=breakEbook, args=(value,))
+                    t.start()
+                    waitAnime()
+                    print("Successfully broken", flush=True)
+                    os.system("pause")
+            else:
+                print("Canceled")
+                os.system("pause")
         else:
-            print("Canceled")
-    elif fileext == "doc" or fileext == "docx":
-        confirm = input("Do you want to break this document?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakDoc(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "mp4" or fileext == "avi" or fileext == "mkv" or fileext == "flv" or fileext == "mpg" or fileext == "wmv" or fileext == "mov" or fileext == "3gp":
-        confirm = input("Do you want to break this video?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakVideo(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "mp3" or fileext == "wav" or fileext == "flac" or fileext == "ogg" or fileext == "aac":
-        confirm = input("Do you want to break this audio?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakAudio(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "zip" or fileext == "rar" or fileext == "7z" or fileext == "tar" or fileext == "gz" or fileext == "bz2" or fileext == "xz" or fileext == "tar.gz":
-        confirm = input("Do you want to break this archive?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakArc(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "jpg" or fileext == "jpeg" or fileext == "png" or fileext == "gif" or fileext == "bmp" or fileext == "tiff" or fileext == "ico":
-        confirm = input("Do you want to break this image?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakImg(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "iso" or fileext == "vdi" or fileext == "vhdx" or fileext == "vhd" or fileext == "img" or fileext == "vmdk":
-        confirm = input("Do you want to break this disk?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakDisk(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "msi" or fileext == "cab" or fileext == "msp" or fileext == "msu" or fileext == "msp" or fileext == "msp" or fileext == "msi" or fileext == "msi":
-        confirm = input("Do you want to break this installer?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakInstaller(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    elif fileext == "pdf" or fileext == "mobi" or fileext == "epub" or fileext == "azw" or fileext == "azw3" or fileext == "azw4" or fileext == "azw5":
-        confirm = input("Do you want to break this ebook?(y/n)")
-        if confirm == "y":
-            with open(filename, "rb") as f:
-                value = f.read()
-                breakEbook(value)
-                print("Successfully broken")
-        else:
-            print("Canceled")
-    else:
-        print("Unsupported file type")
+            print("Unsupported file type")
+            os.system("pause")
+    except Exception as e:
+        print(e)
+        os.system("pause")
 
 
 if __name__ == "__main__":
+    wait = False
     if len(sys.argv) < 2:
         usage()
         exit(1)
@@ -379,4 +448,3 @@ if __name__ == "__main__":
         usage()
     else:
         main(sys.argv)
-    argvs = sys.argv
