@@ -1,0 +1,530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <widget class="QWidget" name="tab_adb">
+     <attribute name="title">
+      <string>ADB工具</string>
+     </attribute>
+     <widget class="QTabWidget" name="adb_tabw_mode">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>801</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>2</number>
+      </property>
+      <widget class="QWidget" name="adb_a">
+       <attribute name="title">
+        <string>预设快捷指令</string>
+       </attribute>
+       <widget class="QPushButton" name="pushButton">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>重新启动</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>0</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>关机</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>0</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>安装APK</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>0</y>
+          <width>141</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看连接的设备</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_5">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>0</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>*卸载APP</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_6">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>0</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>列出所有包名</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_7">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>70</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>列出系统包名</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>70</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>*清除APP数据和缓存</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>70</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>*启动APP</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>70</y>
+          <width>141</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>*强制停止APP</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_11">
+        <property name="geometry">
+         <rect>
+          <x>530</x>
+          <y>70</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看日志</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_12">
+        <property name="geometry">
+         <rect>
+          <x>660</x>
+          <y>70</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>获取序列号</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_13">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>140</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看设备型号</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_14">
+        <property name="geometry">
+         <rect>
+          <x>130</x>
+          <y>140</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看Android系统版本</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_15">
+        <property name="geometry">
+         <rect>
+          <x>260</x>
+          <y>140</y>
+          <width>131</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>查看屏幕分辨率</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_16">
+        <property name="geometry">
+         <rect>
+          <x>390</x>
+          <y>140</y>
+          <width>141</width>
+          <height>71</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>截图</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="adb_a_lineedit_parm">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>280</y>
+          <width>711</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>参数输入框</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="adb_a_btn_confirm">
+        <property name="geometry">
+         <rect>
+          <x>710</x>
+          <y>280</y>
+          <width>81</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>确认</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="textEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>300</y>
+          <width>791</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>此处为返回结果</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="adb_s">
+       <attribute name="title">
+        <string>手动输入指令</string>
+       </attribute>
+       <widget class="QLineEdit" name="adb_s_lineedit_cmdbox">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>681</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>示例：reboot</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="adb_s_btn_excute">
+        <property name="geometry">
+         <rect>
+          <x>680</x>
+          <y>0</y>
+          <width>111</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>执行</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="adb_s_textedit_result">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>20</y>
+          <width>791</width>
+          <height>481</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>此处为结果返回区</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="adb_tab_install">
+       <attribute name="title">
+        <string>快捷安装</string>
+       </attribute>
+       <widget class="QPushButton" name="install_wechat">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>微信</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_QQ">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>QQ</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_douyin">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>抖音</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_steam">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Steam</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_steamchat">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Steam聊天</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_map">
+        <property name="geometry">
+         <rect>
+          <x>600</x>
+          <y>0</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>高德地图</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_chrome">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>GoogleChrome</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_zhihu">
+        <property name="geometry">
+         <rect>
+          <x>120</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>逼乎</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_baidu">
+        <property name="geometry">
+         <rect>
+          <x>240</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>白度</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_taobao">
+        <property name="geometry">
+         <rect>
+          <x>360</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>掏宝</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_jingdong">
+        <property name="geometry">
+         <rect>
+          <x>480</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>金东</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="install_qqmusic">
+        <property name="geometry">
+         <rect>
+          <x>600</x>
+          <y>60</y>
+          <width>121</width>
+          <height>61</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>企鹅音乐</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_fastboot">
+     <attribute name="title">
+      <string>Fastboot工具</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="tab_sql">
+     <attribute name="title">
+      <string>SQLite3工具</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
