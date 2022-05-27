@@ -1,27 +1,28 @@
-import sys
-import os
 import random
+import sys
 
-def breakExe(value:bytes):
+
+def breakExe(value: bytes):
     '''
     this is breakExe function
     :return:
     '''
     string = str(value)
     list = string.split('\\')
-    index = random.randint(0,len(list)-1)
+    index = random.randint(0, len(list) - 1)
     list.remove(list[index])
     result = "".join(list)
     with open("new.exe", "wb") as f:
         f.write(bytes(result, 'utf-8'))
 
-def breakDoc(value:bytes):
+
+def breakDoc(value: bytes):
     '''
     this is breakDoc function
     :return:
     '''
     string = str(value)
-    result = string.replace('word','fakeword')
+    result = string.replace('word', 'fakeword')
     if fileext == 'docx':
         with open("new.docx", "wb") as f:
             f.write(bytes(result, 'utf-8'))
@@ -29,14 +30,15 @@ def breakDoc(value:bytes):
         with open("new.doc", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakVideo(value:bytes):
+
+def breakVideo(value: bytes):
     '''
     this is breakVideo function
     :return:
     '''
     string = str(value)
     list = string.split('\\')
-    index = random.randint(0,len(list)-1)
+    index = random.randint(0, len(list) - 1)
     list.remove(list[index])
     result = "".join(list)
     if fileext == 'mp4':
@@ -64,14 +66,15 @@ def breakVideo(value:bytes):
         with open("new.3gp", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakAudio(value:bytes):
+
+def breakAudio(value: bytes):
     '''
     this is breakAudio function
     :return:
     '''
     string = str(value)
     list = string.split('\\')
-    index = random.randint(0,len(list)-1)
+    index = random.randint(0, len(list) - 1)
     list.remove(list[index])
     result = "".join(list)
     if fileext == 'mp3':
@@ -90,7 +93,8 @@ def breakAudio(value:bytes):
         with open("new.aac", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakArc(value:bytes):
+
+def breakArc(value: bytes):
     '''
     this is breakArc function
     :return:
@@ -125,14 +129,15 @@ def breakArc(value:bytes):
         with open("new.tar.gz", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakImg(value:bytes):
+
+def breakImg(value: bytes):
     '''
     this is breakImg function
     :return:
     '''
     string = str(value)
     list = string.split('\\')
-    index = random.randint(0,len(list)-1)
+    index = random.randint(0, len(list) - 1)
     list.remove(list[index])
     result = "".join(list)
     if fileext == 'jpg':
@@ -157,14 +162,15 @@ def breakImg(value:bytes):
         with open("new.ico", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakDisk(value:bytes):
+
+def breakDisk(value: bytes):
     '''
     this is breakIso function
     :return:
     '''
     string = str(value)
     list = string.split('\\')
-    index = random.randint(0,len(list)-1)
+    index = random.randint(0, len(list) - 1)
     list.remove(list[index])
     result = "".join(list)
     if fileext == 'iso':
@@ -198,7 +204,8 @@ def breakDisk(value:bytes):
         with open("new.vhd", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakInstaller(value:bytes):
+
+def breakInstaller(value: bytes):
     '''
     This is a breakInstaller function
     :return:
@@ -218,7 +225,8 @@ def breakInstaller(value:bytes):
         with open("new.msp", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
-def breakEbook(value:bytes):
+
+def breakEbook(value: bytes):
     '''
     This is a breakPdf function
     :return:
@@ -250,6 +258,7 @@ def breakEbook(value:bytes):
         with open("new.azw5", "wb") as f:
             f.write(bytes(result, 'utf-8'))
 
+
 def usage():
     '''
     This is a usage function
@@ -258,7 +267,18 @@ def usage():
     print("Usage: {} <file>".format(sys.argv[0]))
     print("Example: {} test.exe".format(sys.argv[0]))
 
-def main(argvs:list):
+
+def supportFileExt():
+    '''
+    This is a supportFileExt function
+    :return:
+    '''
+    print("Supported file extensions:")
+    print(
+        "exe, msi, msp, msu, vhd, vmdk, vdi, vhdx, vhd, vcd, iso, dvd, blu-ray, cd, vhd, epub, pdf, mobi, azw, azw3, azw4, azw5, zip ,doc ,docx, mp4")
+
+
+def main(argvs: list):
     '''
     this is main function
     :return:
