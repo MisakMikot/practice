@@ -157,10 +157,11 @@ def help():
     help_content = '''
             Text_Encoder v0.1
 
-            Usage: {} <-e|-d filename> [-s SECRET_KEY]
+            Usage: {} <-e|-d|-c> <filename> [-s SECRET_KEY]
 
             -e : Encode the file
             -d : Decode the file
+            -c : Change the SECRET_KEY of the Image
             -s : Use custom SECRET_KEY
             '''.format(sys.argv[0])
     print(help_content)
@@ -242,6 +243,12 @@ def startDec():
     sys.exit()
 
 
+def change(img, SECRET_KEY, SECRET_KEY_OLD):
+    res = decode(img=img, SECRET_KEY=SECRET_KEY_OLD)
+    res = encode(all_text=res, SECRET_KEY=SECRET_KEY)
+    return res
+
+
 def quick():
     try:
         filename = argvs[1].split(sep='.')[-2]
@@ -291,7 +298,7 @@ def quick():
             winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
             os.system('pause')
             sys.exit()
-        SECRET_KEY = input('请输入密码：')
+        SECRET_KEY = input('请输入密码（留空为默认密码）：')
         if SECRET_KEY == '':
             SECRET_KEY = '123456'
         op = time.time()
@@ -307,6 +314,52 @@ def quick():
         sys.exit()
 
 
+def changePwd():
+    try:
+        filename = argvs[1].split(sep='.')[-2]
+        fileext = argvs[1].split(sep='.')[-1]
+        full = filename + '.' + fileext
+        print(full)
+    except IndexError:
+        help()
+        os.system('pause')
+        sys.exit()
+    if not os.path.isfile(full):
+        print('文件不存在')
+        winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+        os.system('pause')
+        sys.exit()
+    if fileext == 'bmp':
+        print('开始读取图像')
+        try:
+            img = Image.open(full)
+        except Exception as e:
+            print(e)
+            print('读取失败')
+            winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+            os.system('pause')
+            sys.exit()
+    else:
+        print('请输入bmp文件')
+        winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+        os.system('pause')
+        sys.exit()
+    SECRET_KEY_OLD = input('请输入原来的密码（留空为默认密码）：')
+    if SECRET_KEY_OLD == '':
+        SECRET_KEY_OLD = '123456'
+    SECRET_KEY = input('请输入新的密码：')
+    op = time.time()
+    try:
+        res = change(img=img, SECRET_KEY_OLD=SECRET_KEY_OLD, SECRET_KEY=SECRET_KEY)
+    except Exception as e:
+        print(e)
+        print('读取失败')
+        winsound.PlaySound("SystemExit", winsound.SND_ALIAS)
+        os.system('pause')
+        sys.exit()
+    print('完成！')
+
+
 def main():
     if '-e' in argvs:
         startEnc()
@@ -314,6 +367,8 @@ def main():
         startDec()
     elif len(argvs) == 2 and not '-e' in argvs and not '-d' in argvs:
         quick()
+    elif '-c' in argvs:
+        changePwd()
     else:
         help()
 
