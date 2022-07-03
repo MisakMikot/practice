@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>570</width>
+    <height>386</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>791</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab_dict">
+     <attribute name="title">
+      <string>字典破解</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>-4</x>
+        <y>-1</y>
+        <width>791</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="tab_dict_crack">
+       <attribute name="title">
+        <string>破解</string>
+       </attribute>
+       <widget class="QLineEdit" name="le_dictadd">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>421</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>字典地址</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btn_browsedict">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>0</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>浏览</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_target">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>421</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>&lt;选择目标WIFI&gt;</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="btn_refresh">
+        <property name="geometry">
+         <rect>
+          <x>420</x>
+          <y>30</y>
+          <width>151</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>刷新</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="cb_threads">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>571</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>&lt;选择线程数量&gt;</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>单线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>双线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>四线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>八线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>十六线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>三十二线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>六十四线程</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>一百二十八线程</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QCommandLinkButton" name="btn_start">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>开始破解</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="te_log">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>130</y>
+          <width>571</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="undoRedoEnabled">
+         <bool>false</bool>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>日志</string>
+        </property>
+       </widget>
+       <widget class="QProgressBar" name="pb_progress">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>290</y>
+          <width>571</width>
+          <height>23</height>
+         </rect>
+        </property>
+        <property name="value">
+         <number>0</number>
+        </property>
+        <property name="textVisible">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_dict_gen">
+       <attribute name="title">
+        <string>生成字典</string>
+       </attribute>
+       <widget class="QLineEdit" name="lineEdit">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>60</y>
+          <width>571</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>最大密码长度</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="check_num">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>281</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>数字(0-9)</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="check_upper">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>0</y>
+          <width>291</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>大写字母(A-Z)</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="check_lower">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>281</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>小写字母(a-z)</string>
+        </property>
+       </widget>
+       <widget class="QCheckBox" name="check_special">
+        <property name="geometry">
+         <rect>
+          <x>280</x>
+          <y>30</y>
+          <width>291</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>特殊符号(!@#$%^&amp;*()_+-=|;:'&quot;,&lt;.&gt;/?`~)</string>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="btn_gen">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>90</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>生成</string>
+        </property>
+       </widget>
+       <widget class="QTextEdit" name="gen_result">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>155</y>
+          <width>571</width>
+          <height>161</height>
+         </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="placeholderText">
+         <string>结果</string>
+        </property>
+       </widget>
+       <widget class="QLineEdit" name="le_statu">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>120</y>
+          <width>571</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>下载常用字典</string>
+       </attribute>
+       <widget class="QCommandLinkButton" name="dl_1">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>561</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>字典1</string>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="cl_2">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>40</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>字典2</string>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="cl_3">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>80</y>
+          <width>571</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>字典3</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_server">
+     <attribute name="title">
+      <string>密码服务器</string>
+     </attribute>
+     <widget class="QTabWidget" name="tabWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>561</width>
+        <height>301</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="tab_getPwd">
+       <attribute name="title">
+        <string>获取密码信息</string>
+       </attribute>
+       <widget class="QComboBox" name="cb_getWIFI">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>451</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <item>
+         <property name="text">
+          <string>&lt;选择目标WIFI&gt;</string>
+         </property>
+        </item>
+       </widget>
+       <widget class="QPushButton" name="btn_refresh2">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>450</x>
+          <y>0</y>
+          <width>111</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>刷新</string>
+        </property>
+       </widget>
+       <widget class="QCommandLinkButton" name="btn_get">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>30</y>
+          <width>551</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>获取</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tab_upload">
+       <attribute name="title">
+        <string>上传你的密码</string>
+       </attribute>
+       <widget class="QCommandLinkButton" name="btn_upload">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>561</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>上传</string>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+     <widget class="QLineEdit" name="le_svradd">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>310</y>
+        <width>471</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="placeholderText">
+       <string>密码服务器地址</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_connect">
+      <property name="geometry">
+       <rect>
+        <x>470</x>
+        <y>310</y>
+        <width>91</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>连接</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>570</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
