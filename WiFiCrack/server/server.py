@@ -1,10 +1,7 @@
-import socket
-import sys
-import threading
-import json
-import time
-import sqlite3
 import os
+import socket
+import threading
+
 import dbtool
 
 
@@ -20,6 +17,7 @@ def accept_client():
         t.daemon = True  # 设置为守护线程
         t.start()  # 启动线程
 
+
 def handle_client(conn, addr):  # 处理客户端连接
     '''
     处理客户端连接
@@ -31,16 +29,17 @@ def handle_client(conn, addr):  # 处理客户端连接
     t = threading.Thread(target=handle_msg, args=(conn, addr))  # 创建线程
     t.start()  # 启动线程
 
+
 def handle_msg(conn, addr):
     global db
     while True:
         try:
             data = conn.recv(1024)  # 接收客户端发送的数据
+            data = eval(data)  # 将字符串转换为字典
         except:
             print("Connection lost from: " + str(addr))  # 打印客户端断开连接信息
             conn.close()  # 关闭连接
             break
-        data = eval(data)  # 将字符串转换为字典
         if data['type'] == 'search':  # 如果消息类型为查询
             msg = data['data']['SSID']  # 获取查询内容
             print('Searching for: ' + str(msg))  # 打印查询内容
@@ -70,10 +69,8 @@ def svr_Start():
     accept_client()  # 启动接收客户端连接线程
 
 
-
-
 def main():
-    global db # 声明全局变量
+    global db  # 声明全局变量
     if os.path.isfile('data.db'):
         db = dbtool.dbtool('data.db')
     else:
@@ -81,6 +78,7 @@ def main():
         db.init()
     t = threading.Thread(target=svr_Start)  # 创建线程
     t.start()  # 启动线程
+
 
 if __name__ == '__main__':
     db = None

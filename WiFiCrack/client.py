@@ -12,11 +12,11 @@ class client:
         self.host = host
         self.port = port
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        #try:
-        self.sock.connect((self.host, self.port))
-        '''except:
+        try:
+            self.sock.connect((self.host, self.port))
+        except:
             print('Connection failed')
-            return'''
+            return
         self.wifi = pywifi.PyWiFi() # create a PyWiFi object
         self.ifaces = self.wifi.interfaces()[0] # get the first interface
 
@@ -28,7 +28,8 @@ class client:
 
     def main(self):
         self.cls()
-        text = '''    ____  ___   ___________       ______  ____  ____             
+        text = '''
+            ____  ___   ___________       ______  ____  ____             
            / __ \/   | / ___/ ___/ |     / / __ \/ __ \/ __ \            
           / /_/ / /| | \__ \\__ \| | /| / / / / / /_/ / / / /            
          / ____/ ___ |___/ /__/ /| |/ |/ / /_/ / _, _/ /_/ /             
@@ -41,7 +42,7 @@ class client:
         print('\n')
         print('1. Search WiFi password')
         print('2. Upload WiFi password')
-        print('3. Exit')
+        print('3. Disconnect')
         print('\n')
         choice = input('Enter your choice: ')
         if choice == '1':
@@ -74,6 +75,17 @@ class client:
             self.cls()
             self.upload()
             print('Upload success!')
+            time.sleep(1)
+            self.main()
+        elif choice == '3':
+            self.cls()
+            self.sock.close()
+            print('Disconnected')
+            time.sleep(1)
+            return
+        else:
+            self.cls()
+            print('Invalid choice')
             time.sleep(1)
             self.main()
 
